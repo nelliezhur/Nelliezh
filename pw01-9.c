@@ -1,13 +1,13 @@
 #include <stdio.h>
 
 void phase_2() {
-    printf(" GAMMA");
+    printf(" BETA");
 }
 
 void phase_1() {
     printf(" ALPHA");
     phase_2();
-    printf(" BETA");
+    printf(" GAMMA");
 }
 
 int main() {
