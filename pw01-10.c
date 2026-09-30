@@ -1,25 +1,34 @@
 #include <stdio.h>
-#define NODE_ID 168
 
-void handshake() {
-    printf("PING-PONG-PING:%d\n", NODE_ID);
+#define NODE_ID 42
+
+void ping() {
+    printf("PING");
 }
 
 void pong() {
-    handshake();
+    printf("PONG");
 }
 
-void ping() {
+void handshake() {
+    ping();
+    printf("-");
     pong();
+    printf("-");
+    ping();
 }
 
 int main() {
-    int packet_size = 4;
+    int packet_size = NODE_ID * 4;
     int total_transfer = packet_size * 3;
 
-    ping();
-    printf("PING-PONG-PING:%d\n", total_transfer * 42);
+    handshake();
+    printf(":%d\n", packet_size);
+
+    handshake();
+    printf(":%d\n", total_transfer);
+
     printf("SESSION:CLOSED\n");
-    
+
     return 0;
 }
